@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+$item-size: 90%;
+$item-gap: 10px;
+
+@mixin size($height, $width: $height) {
+  height: $height;
+  width: $width;
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  @include size(100%, 100%);
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+}
+
+.wrapper {
+  @include size(100%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title {
+  background-color: #c60000;
+  border-bottom: solid 1px #000;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.scroll {
+  @include size(50vh, 50vw);
+  border: solid 5px #000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 $item-gap;
+  scroll-snap-type: x mandatory;
+}
+
+.item {
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  border: solid 2px #c60000;
+  display: flex;
+  height: 90%;
+  justify-content: center;
+  margin: auto ($item-gap / 2);
+  overflow: hidden;
+  scroll-snap-align: center;
+  width: 90%;
+
+  img {
+    height: 100%;
+  }
+}
